@@ -1,6 +1,8 @@
 package classes;
 
-public class Session {
+import dao.DaoSession;
+
+public class Session implements DaoSession {
 private int id,duree,id_formation;
 private String date;
 private float prix;
@@ -33,6 +35,21 @@ public float getPrix() {
 }
 public void setPrix(float prix) {
 	this.prix = prix;
+}
+@Override
+public void createSession() {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void updateSession(int id) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void deleteSession(int id) {
+	// TODO Auto-generated method stub
+	
 }
 
 

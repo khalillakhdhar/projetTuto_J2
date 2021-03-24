@@ -12,11 +12,10 @@ String password="";
 try
 {
 Class.forName(driver).newInstance();
-conn= (com.mysql.jdbc.Connection)
-DriverManager.getConnection(url+dbName,userName, password);
+conn= (com.mysql.jdbc.Connection) DriverManager.getConnection(url+dbName,userName, password);
 System.out.println("la connexion a reussie");
 }catch(Exception e)
 {
-System.out.println("la connexion est echoué");
+System.out.println("la connexion est echoué "+e.toString());
 }
 }}

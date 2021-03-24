@@ -1,6 +1,10 @@
 package classes;
 
-public class Formation {
+import java.sql.ResultSet;
+
+import dao.DaoFormation;
+
+public class Formation implements DaoFormation {
 private int id;
 private String titre, formateur, description;
 public int getId() {
@@ -26,6 +30,36 @@ public String getDescription() {
 }
 public void setDescription(String description) {
 	this.description = description;
+}
+@Override
+public void createFormation() {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void updateFormation(int id) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void deleteFormation(int id) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public ResultSet listFormation() {
+	// TODO Auto-generated method stub
+	return null;
+}
+@Override
+public Formation findFormation(String titre) {
+	// TODO Auto-generated method stub
+	return null;
+}
+@Override
+public Formation searchFormation(int id) {
+	// TODO Auto-generated method stub
+	return null;
 }
 
 

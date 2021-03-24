@@ -1,6 +1,10 @@
 package classes;
 
-public class Candidat {
+import java.sql.ResultSet;
+
+import dao.DaoCandidat;
+
+public class Candidat implements DaoCandidat {
 private int id;
 private String nom,prenom,tel,niveau,email,pass,grade;
 public int getId() {
@@ -50,6 +54,33 @@ public String getGrade() {
 }
 public void setGrade(String grade) {
 	this.grade = grade;
+}
+
+
+@Override
+public void createCandidat() {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void updateCandidat() {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void deleteCandidat() {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public ResultSet afficheCandidats() {
+	// TODO Auto-generated method stub
+	return null;
+}
+@Override
+public Candidat authentifier(String email, String password) {
+	// TODO Auto-generated method stub
+	return null;
 }
 
 

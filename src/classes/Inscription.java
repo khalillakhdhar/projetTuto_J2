@@ -1,6 +1,8 @@
 package classes;
 
-public class Inscription {
+import dao.DaoInscription;
+
+public class Inscription implements DaoInscription {
 private int id,id_user,id_session;
 private String date_heure;
 public int getId() {
@@ -26,6 +28,16 @@ public String getDate_heure() {
 }
 public void setDate_heure(String date_heure) {
 	this.date_heure = date_heure;
+}
+@Override
+public void createInscription() {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void deleteInscription() {
+	// TODO Auto-generated method stub
+	
 }
 
 
