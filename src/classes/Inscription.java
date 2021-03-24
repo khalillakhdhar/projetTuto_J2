@@ -8,6 +8,14 @@ import dao.DaoInscription;
 public class Inscription implements DaoInscription {
 private int id,id_user,id_session;
 private String date_heure;
+
+
+
+public Inscription(int id_user, int id_session) {
+	super();
+	this.id_user = id_user;
+	this.id_session = id_session;
+}
 public int getId() {
 	return id;
 }

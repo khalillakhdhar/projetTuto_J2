@@ -9,6 +9,18 @@ public class Session implements DaoSession {
 private int id,duree,id_formation;
 private String date;
 private float prix;
+
+
+
+
+
+public Session(int duree, int id_formation, String date, float prix) {
+	super();
+	this.duree = duree;
+	this.id_formation = id_formation;
+	this.date = date;
+	this.prix = prix;
+}
 public int getId() {
 	return id;
 }
