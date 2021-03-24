@@ -10,9 +10,6 @@ public class Candidat implements DaoCandidat {
 	private int id;
 	private String nom, prenom, tel, niveau, email, pass, grade;
 
-	
-	
-	
 	public Candidat() {
 		super();
 	}
@@ -91,32 +88,29 @@ public class Candidat implements DaoCandidat {
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
-	
-	
-	
 
-@Override
+	@Override
 	public String toString() {
 		return "Candidat [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", tel=" + tel + ", niveau=" + niveau
 				+ ", email=" + email + ", pass=" + pass + ", grade=" + grade + "]";
 	}
 
-@Override
-public void createCandidat() {
-	// TODO Auto-generated method stub
-	try {
+	@Override
+	public void createCandidat() {
+		// TODO Auto-generated method stub
+		try {
 
-		Connexion c = new Connexion();
-		java.sql.PreparedStatement statement = c.conn
-				.prepareStatement("INSERT INTO `candidat`( `nom`, `prenom`, `tel`, `niveau`, `email`, `pass`, `grade`) VALUES('"
-						+ this.getNom() + "','" + this.getPrenom() + "','" + this.getTel() + "','" + this.niveau + "','"
-						+ this.getEmail() + "','" + this.getPass() + "','" + this.getGrade() + "')");
-		statement.executeUpdate();
-		System.out.println("ajouté avec succés");
-	} catch (SQLException ex) {
-		System.out.println(ex.toString());
+			Connexion c = new Connexion();
+			java.sql.PreparedStatement statement = c.conn.prepareStatement(
+					"INSERT INTO `candidat`( `nom`, `prenom`, `tel`, `niveau`, `email`, `pass`, `grade`) VALUES('"
+							+ this.getNom() + "','" + this.getPrenom() + "','" + this.getTel() + "','" + this.niveau
+							+ "','" + this.getEmail() + "','" + this.getPass() + "','" + this.getGrade() + "')");
+			statement.executeUpdate();
+			System.out.println("ajouté avec succés");
+		} catch (SQLException ex) {
+			System.out.println(ex.toString());
+		}
 	}
-}
 
 	@Override
 	public void updateCandidat() {
@@ -133,36 +127,32 @@ public void createCandidat() {
 	@Override
 	public ResultSet afficheCandidats() throws SQLException {
 		// TODO Auto-generated method stub
-		Connexion c=new Connexion();
+		Connexion c = new Connexion();
 		PreparedStatement pst;
-		pst = (PreparedStatement)
-		c.conn.prepareStatement("SELECT * FROM candidat");
+		pst = (PreparedStatement) c.conn.prepareStatement("SELECT * FROM candidat");
 		pst.executeQuery();
 		ResultSet rs = (ResultSet) pst.executeQuery();
 		return rs;
-		
-	
-	
+
 	}
 
 	@Override
 	public Candidat authentifier(String email, String password) throws SQLException {
 		// TODO Auto-generated method stub
-		Connexion c=new Connexion();
+		Connexion c = new Connexion();
 		PreparedStatement pst;
-		pst = (PreparedStatement)
-		c.conn.prepareStatement("SELECT * FROM candidat WHERE email='"+email+"' AND pass='"+password+"' ");
+		pst = (PreparedStatement) c.conn
+				.prepareStatement("SELECT * FROM candidat WHERE email='" + email + "' AND pass='" + password + "' ");
 		pst.executeQuery();
 		ResultSet rs = (ResultSet) pst.executeQuery();
-		if(rs.first())
-		{
-			Candidat ca=new Candidat(rs.getString("nom"),rs.getString("prenom"), rs.getString("tel"), rs.getString("niveau"), rs.getString("email"), rs.getString("pass"),rs.getString("grade"));
+		if (rs.first()) {
+			Candidat ca = new Candidat(rs.getString("nom"), rs.getString("prenom"), rs.getString("tel"),
+					rs.getString("niveau"), rs.getString("email"), rs.getString("pass"), rs.getString("grade"));
 			ca.setId(rs.getInt("id"));
 			return ca;
-			
-			
+
 		}
-		//return rs;
+		// return rs;
 		return null;
 	}
 
