@@ -1,5 +1,6 @@
 package classes;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -70,9 +71,16 @@ public class Inscription implements DaoInscription {
 	}
 
 	@Override
-	public ResultSet afficheInscription() {
+	public ResultSet afficheInscription() throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		// TODO Auto-generated method stub
+		String query="SELECT inscription.id,formation.titre,candidat.nom,candidat.prenom,inscription.date_heure FROM inscription ,formation ,candidat ,session WHERE inscription.id_user=candidat.id AND inscription.id_session=session.id AND session.id_formation=formation.id";
+		Connexion c = new Connexion();
+		PreparedStatement pst;
+		pst = (PreparedStatement) c.conn.prepareStatement(query);
+		pst.executeQuery();
+		ResultSet rs = (ResultSet) pst.executeQuery();
+		return rs;
 	}
 
 }

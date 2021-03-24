@@ -1,5 +1,6 @@
 package classes;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -87,9 +88,17 @@ public class Session implements DaoSession {
 	}
 
 	@Override
-	public ResultSet afficheSession() {
+	public ResultSet afficheSession() throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
+		String query="SELECT session.id, date,prix,duree,formation.titre,formation.formateur FROM `session`,formation WHERE session.id_formation=formation.id";
+		Connexion c = new Connexion();
+		PreparedStatement pst;
+		pst = (PreparedStatement) c.conn.prepareStatement(query);
+		pst.executeQuery();
+		ResultSet rs = (ResultSet) pst.executeQuery();
+		return rs;
 	}
 
 }
