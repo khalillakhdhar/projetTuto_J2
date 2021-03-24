@@ -70,9 +70,26 @@ public class Formation implements DaoFormation {
 	}
 
 	@Override
-	public void updateFormation(int id) {
+	public void updateFormation(int idf) {
 		// TODO Auto-generated method stub
-
+		try
+		{
+			Connexion c=new Connexion();
+			String sql="UPDATE `formation` SET `titre`='"+this.getTitre()+"',`formateur`='"+this.getFormateur()+"',`description`='"+this.getFormateur()+"' WHERE id='"+this.getId()+"';";
+					java.sql.PreparedStatement statement =
+					c.conn.prepareStatement(sql);
+					statement.executeUpdate();
+					System.out.println("modifié avec succés");
+			
+			
+		}
+		catch(Exception ex)
+		{
+			
+			System.out.println("erreur lors de la modification "+ ex.toString());
+			
+		}
+		
 	}
 
 	@Override
