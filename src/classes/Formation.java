@@ -122,15 +122,42 @@ public class Formation implements DaoFormation {
 	}
 
 	@Override
-	public Formation findFormation(String titre) {
+	public Formation findFormation(String titre) throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		Connexion c=new Connexion();
+		PreparedStatement pst2;
+		pst2 = (PreparedStatement)
+		c.conn.prepareStatement("SELECT * FROM formation where titre='"+titre+"'");
+		pst2.executeQuery();
+		ResultSet rs = (ResultSet) pst2.executeQuery();
+if(rs.first())
+{
+Formation f=new Formation(rs.getString("titre"), rs.getString("formateur"), rs.getString("description"));
+f.setId(rs.getInt("id"));
+return f;
+}
+else 
+	return null;
+	
 	}
 
 	@Override
-	public Formation searchFormation(int id) {
+	public Formation searchFormation(int id) throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		Connexion c=new Connexion();
+		PreparedStatement pst2;
+		pst2 = (PreparedStatement)
+		c.conn.prepareStatement("SELECT * FROM formation where id='"+id+"'");
+		pst2.executeQuery();
+		ResultSet rs = (ResultSet) pst2.executeQuery();
+if(rs.first())
+{
+Formation f=new Formation(rs.getString("titre"), rs.getString("formateur"), rs.getString("description"));
+f.setId(rs.getInt("id"));
+return f;
+}
+else 
+	return null;
 	}
 
 }
