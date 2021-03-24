@@ -1,5 +1,6 @@
 package classes;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -121,9 +122,18 @@ public void createCandidat() {
 	}
 
 	@Override
-	public ResultSet afficheCandidats() {
+	public ResultSet afficheCandidats() throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		Connexion c=new Connexion();
+		PreparedStatement pst;
+		pst = (PreparedStatement)
+		c.conn.prepareStatement("SELECT * FROM formation");
+		pst.executeQuery();
+		ResultSet rs = (ResultSet) pst.executeQuery();
+		return rs;
+		
+	
+	
 	}
 
 	@Override
