@@ -47,8 +47,7 @@ public void createInscription() {
 
 		Connexion c = new Connexion();
 		java.sql.PreparedStatement statement = c.conn
-				.prepareStatement("INSERT INTO `inscription`(`id_user`, `id_session`) VALUES ('"
-						+ this.getId_user()+ "','" + this.getId_session() + "'')");
+				.prepareStatement("INSERT INTO `inscription`(`id_user`, `id_session`) VALUES ('"+ this.getId_user()+ "','" + this.getId_session() + "')");
 		statement.executeUpdate();
 		System.out.println("ajouté avec succés");
 	} catch (SQLException ex) {

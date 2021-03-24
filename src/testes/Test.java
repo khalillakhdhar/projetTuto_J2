@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import classes.Candidat;
 import classes.Connexion;
 import classes.Formation;
+import classes.Inscription;
 import classes.Session;
 public class Test {
 	public static void main(String args[])
@@ -27,7 +28,9 @@ Formation f=new Formation("JSP", "Khalil", "JSP SERVLET JDBC ET JSTL");
 //}
 
 Session s=new Session(24, 1, "12/04/2021", 4200);
-s.createSession();
+//s.createSession();
 
+Inscription i=new Inscription(1, 1);
+i.createInscription();
 	}
 }
