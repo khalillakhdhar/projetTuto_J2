@@ -12,6 +12,21 @@ public class Test {
 		//c.createCandidat();
 		try {
 			ResultSet rs=c.afficheCandidats();
+			
+//			if(rs.first())
+//			{
+//				System.out.println(rs.getInt("id"));
+//				System.out.println(rs.getString("nom")+" "+rs.getString("prenom"));
+//				
+//			}
+			while(rs.next())
+			{
+				System.out.println(rs.getInt("id"));
+				System.out.println(rs.getString("nom")+" "+rs.getString("prenom"));
+				
+				
+			}
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

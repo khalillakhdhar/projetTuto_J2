@@ -127,7 +127,7 @@ public void createCandidat() {
 		Connexion c=new Connexion();
 		PreparedStatement pst;
 		pst = (PreparedStatement)
-		c.conn.prepareStatement("SELECT * FROM formation");
+		c.conn.prepareStatement("SELECT * FROM candidat");
 		pst.executeQuery();
 		ResultSet rs = (ResultSet) pst.executeQuery();
 		return rs;
