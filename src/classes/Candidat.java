@@ -108,7 +108,7 @@ public class Candidat implements DaoCandidat {
 			statement.executeUpdate();
 			System.out.println("ajouté avec succés");
 		} catch (SQLException ex) {
-			System.out.println(ex.toString());
+			System.out.println("erreur lors de l ajout "+ex.toString());
 		}
 	}
 
@@ -129,7 +129,7 @@ public class Candidat implements DaoCandidat {
 		catch(Exception ex)
 		{
 			
-			System.out.println("erreur"+ ex.toString());
+			System.out.println("erreur lors de la modification "+ ex.toString());
 			
 		}
 		
@@ -145,8 +145,13 @@ public class Candidat implements DaoCandidat {
 			String sql = "DELETE FROM `candidat` WHERE `id`=?";
 			java.sql.PreparedStatement statement =
 			c.conn.prepareStatement(sql); statement.setInt(1,this.getId());
+			
 			statement.execute();
-			} catch (SQLException ex) { }
+			System.out.println("supprimé avec succés");
+			} catch (SQLException ex) {
+				System.out.println("erreur lors de la suppression "+ex.toString());
+				
+			}
 	}
 
 	@Override

@@ -28,9 +28,12 @@ public class Test {
 //		e.printStackTrace();
 //	}
 //	
-	Candidat cn=new Candidat("administrateur", "admin", "20744351", "administration", "admin@gmail.com", "admin", "admin");
-	cn.setId(1);
-	cn.updateCandidat();
-	
+//	Candidat cn=new Candidat("administrateur", "admin", "20744351", "administration", "admin@gmail.com", "admin", "admin");
+//	cn.setId(1);
+//	cn.updateCandidat();
+
+		Candidat ca=new Candidat();
+		ca.setId(2);
+		ca.deleteCandidat();
 	}
 }
