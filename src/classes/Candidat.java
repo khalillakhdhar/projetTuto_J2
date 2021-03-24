@@ -91,6 +91,15 @@ public class Candidat implements DaoCandidat {
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
+	
+	
+	
+
+@Override
+	public String toString() {
+		return "Candidat [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", tel=" + tel + ", niveau=" + niveau
+				+ ", email=" + email + ", pass=" + pass + ", grade=" + grade + "]";
+	}
 
 @Override
 public void createCandidat() {
@@ -137,8 +146,23 @@ public void createCandidat() {
 	}
 
 	@Override
-	public Candidat authentifier(String email, String password) {
+	public Candidat authentifier(String email, String password) throws SQLException {
 		// TODO Auto-generated method stub
+		Connexion c=new Connexion();
+		PreparedStatement pst;
+		pst = (PreparedStatement)
+		c.conn.prepareStatement("SELECT * FROM candidat WHERE email='"+email+"' AND pass='"+password+"' ");
+		pst.executeQuery();
+		ResultSet rs = (ResultSet) pst.executeQuery();
+		if(rs.first())
+		{
+			Candidat ca=new Candidat(rs.getString("nom"),rs.getString("prenom"), rs.getString("tel"), rs.getString("niveau"), rs.getString("email"), rs.getString("pass"),rs.getString("grade"));
+			ca.setId(rs.getInt("id"));
+			return ca;
+			
+			
+		}
+		//return rs;
 		return null;
 	}
 

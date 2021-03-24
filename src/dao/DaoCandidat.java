@@ -10,5 +10,5 @@ void createCandidat();
 void updateCandidat();
 void deleteCandidat();
 ResultSet afficheCandidats() throws SQLException;
-Candidat authentifier(String email,String password);
+Candidat authentifier(String email,String password) throws SQLException;
 }
