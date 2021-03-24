@@ -9,6 +9,20 @@ public class Candidat implements DaoCandidat {
 	private int id;
 	private String nom, prenom, tel, niveau, email, pass, grade;
 
+	
+	
+	
+	public Candidat(String nom, String prenom, String tel, String niveau, String email, String pass, String grade) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.tel = tel;
+		this.niveau = niveau;
+		this.email = email;
+		this.pass = pass;
+		this.grade = grade;
+	}
+
 	public int getId() {
 		return id;
 	}
