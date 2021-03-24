@@ -12,6 +12,10 @@ public class Candidat implements DaoCandidat {
 	
 	
 	
+	public Candidat() {
+		super();
+	}
+
 	public Candidat(String nom, String prenom, String tel, String niveau, String email, String pass, String grade) {
 		super();
 		this.nom = nom;
@@ -94,9 +98,9 @@ public void createCandidat() {
 
 		Connexion c = new Connexion();
 		java.sql.PreparedStatement statement = c.conn
-				.prepareStatement("INSERT INTO `candidat`( `nom`, `prenom`, `tel`, `niveau`, `email`, `pass`) VALUES('"
+				.prepareStatement("INSERT INTO `candidat`( `nom`, `prenom`, `tel`, `niveau`, `email`, `pass`, `grade`) VALUES('"
 						+ this.getNom() + "','" + this.getPrenom() + "','" + this.getTel() + "','" + this.niveau + "','"
-						+ this.getEmail() + "','" + this.getPass() + "')");
+						+ this.getEmail() + "','" + this.getPass() + "','" + this.getGrade() + "')");
 		statement.executeUpdate();
 		System.out.println("ajouté avec succés");
 	} catch (SQLException ex) {
