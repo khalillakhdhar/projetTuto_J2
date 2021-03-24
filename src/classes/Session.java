@@ -1,6 +1,7 @@
 package classes;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import dao.DaoSession;
 
@@ -41,7 +42,17 @@ public void setPrix(float prix) {
 @Override
 public void createSession() {
 	// TODO Auto-generated method stub
-	
+	try {
+
+		Connexion c = new Connexion();
+		java.sql.PreparedStatement statement = c.conn.prepareStatement(
+				"INSERT INTO `session`( `date`, `id_formation`, `duree`, `prix`) VALUES ('" + this.getDate() + "','"
+						+ this.getId_formation() + "','" + this.getDuree() + "','" + this.getPrix() + "')");
+		statement.executeUpdate();
+		System.out.println("ajouté avec succés");
+	} catch (SQLException ex) {
+		System.out.println(ex.toString());
+	}
 }
 @Override
 public void updateSession(int id) {
