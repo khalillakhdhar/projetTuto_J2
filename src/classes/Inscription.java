@@ -1,6 +1,7 @@
 package classes;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import dao.DaoInscription;
 
@@ -34,7 +35,17 @@ public void setDate_heure(String date_heure) {
 @Override
 public void createInscription() {
 	// TODO Auto-generated method stub
-	
+	try {
+
+		Connexion c = new Connexion();
+		java.sql.PreparedStatement statement = c.conn
+				.prepareStatement("INSERT INTO `inscription`(`id_user`, `id_session`) VALUES ('"
+						+ this.getId_user()+ "','" + this.getId_session() + "'')");
+		statement.executeUpdate();
+		System.out.println("ajouté avec succés");
+	} catch (SQLException ex) {
+		System.out.println(ex.toString());
+	}
 }
 
 @Override
