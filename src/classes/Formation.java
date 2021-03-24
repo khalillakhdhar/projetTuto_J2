@@ -1,5 +1,6 @@
 package classes;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -8,6 +9,16 @@ import dao.DaoFormation;
 public class Formation implements DaoFormation {
 	private int id;
 	private String titre, formateur, description;
+
+	
+	
+	
+	public Formation(String titre, String formateur, String description) {
+		super();
+		this.titre = titre;
+		this.formateur = formateur;
+		this.description = description;
+	}
 
 	public int getId() {
 		return id;
@@ -71,9 +82,15 @@ public class Formation implements DaoFormation {
 	}
 
 	@Override
-	public ResultSet listFormation() {
+	public ResultSet listFormation() throws SQLException {
 		// TODO Auto-generated method stub
-		return null;
+		Connexion c=new Connexion();
+		PreparedStatement pst;
+		pst = (PreparedStatement)
+		c.conn.prepareStatement("SELECT * FROM formation");
+		pst.executeQuery();
+		ResultSet rs = (ResultSet) pst.executeQuery();
+		return rs;
 	}
 
 	@Override
