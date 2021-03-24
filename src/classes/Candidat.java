@@ -115,6 +115,25 @@ public class Candidat implements DaoCandidat {
 	@Override
 	public void updateCandidat() {
 		// TODO Auto-generated method stub
+		try
+		{
+			Connexion c=new Connexion();
+			String sql="UPDATE `table` SET `nom`='"+this.getNom()+"',`prenom`='"+this.getPrenom()+"',`tel`='"+this.getTel()+"',`niveau`='"+this.getNiveau()+"',`email`='"+this.getEmail()+"',`prenom`='"+this.getPass()+"', WHERE `id`='"+this.getId()+"';";
+					java.sql.PreparedStatement statement =
+					c.conn.prepareStatement(sql);
+					statement.executeUpdate();
+					;
+			
+			
+		}
+		catch(Exception ex)
+		{
+			
+			System.out.println("erreur"+ ex.toString());
+			
+		}
+		
+		
 
 	}
 
