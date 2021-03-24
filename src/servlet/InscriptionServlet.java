@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import classes.Candidat;
+
 /**
  * Servlet implementation class InscriptionServlet
  */
@@ -35,7 +37,18 @@ public class InscriptionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
+		String nom=request.getParameter("nom");
+		String prenom=request.getParameter("prenom");
+		String tel=request.getParameter("tel");
+		String niveau=request.getParameter("niveau");
+		String email=request.getParameter("mail");
+		String pass=request.getParameter("pass");
+Candidat ca=new Candidat(nom, prenom, tel, niveau, email, pass, "user");
+ca.createCandidat();
+response.sendRedirect("index.jsp");
+		
+		
 	}
 
 }

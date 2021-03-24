@@ -18,19 +18,19 @@
 <p><h1>Inscription</h1></p>
 <div class="mb-3">
     <label for="cnom" class="form-label">Nom </label>
-    <input type="text" required  class="form-control" id="cnom">
+    <input type="text" required  class="form-control" name="nom" id="cnom">
   </div>
   <div class="mb-3">
     <label for="prenom" class="form-label">Prenom </label>
-    <input type="text" required  class="form-control" id="prenom">
+    <input type="text" required  class="form-control" name="prenom" id="prenom">
   </div>
     <div class="mb-3">
     <label for="phone" class="form-label">téléphone </label>
-    <input type="text" required  class="form-control" id="phone">
+    <input type="text" required name="tel"  class="form-control" id="phone">
   </div>
     <div class="mb-3">
     <label for="level" class="form-label">niveau </label>
-    <select required  class="form-control" id="level">
+    <select required name="niveau" class="form-control" id="level">
     <option value="débutant">débutant</option>
     <option value="junior">junior</option>
     <option value="senior">senior</option>
@@ -38,11 +38,11 @@
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email </label>
-    <input type="email" class="form-control" id="exampleInputEmail1">
+    <input type="email" name="mail" class="form-control" id="exampleInputEmail1">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <input type="password" name="pass" class="form-control" id="exampleInputPassword1">
   </div>
   <button type="submit" class="btn btn-primary">S'inscrire</button>
   <br><a href="index.jsp">Connexion</a>
