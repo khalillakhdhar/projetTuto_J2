@@ -31,9 +31,17 @@ public class Test {
 //	Candidat cn=new Candidat("administrateur", "admin", "20744351", "administration", "admin@gmail.com", "admin", "admin");
 //	cn.setId(1);
 //	cn.updateCandidat();
-
-		Candidat ca=new Candidat();
-		ca.setId(2);
-		ca.deleteCandidat();
+//
+		
+//		Candidat ca=new Candidat();
+//		ca.setId(2);
+//		ca.deleteCandidat();
+		
+		Formation f1=new Formation("Spring boot","inconnu", "Spring MVC 5 et BOOT for API");
+	//	f1.setId(2);
+		f1.updateFormation(2);
+		f1.deleteFormation(2);
+		
+		
 	}
 }

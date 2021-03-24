@@ -75,7 +75,7 @@ public class Formation implements DaoFormation {
 		try
 		{
 			Connexion c=new Connexion();
-			String sql="UPDATE `formation` SET `titre`='"+this.getTitre()+"',`formateur`='"+this.getFormateur()+"',`description`='"+this.getFormateur()+"' WHERE id='"+this.getId()+"';";
+			String sql="UPDATE `formation` SET `titre`='"+this.getTitre()+"',`formateur`='"+this.getFormateur()+"',`description`='"+this.getDescription()+"' WHERE id='"+idf+"';";
 					java.sql.PreparedStatement statement =
 					c.conn.prepareStatement(sql);
 					statement.executeUpdate();
@@ -93,9 +93,20 @@ public class Formation implements DaoFormation {
 	}
 
 	@Override
-	public void deleteFormation(int id) {
+	public void deleteFormation(int idf) {
 		// TODO Auto-generated method stub
-
+		try {
+			Connexion c=new Connexion();
+			String sql = "DELETE FROM `formation` WHERE `id`=?";
+			java.sql.PreparedStatement statement =
+			c.conn.prepareStatement(sql); statement.setInt(1,idf);
+			
+			statement.execute();
+			System.out.println("supprimé avec succés");
+			} catch (SQLException ex) {
+				System.out.println("erreur lors de la suppression "+ex.toString());
+				
+			}
 	}
 
 	@Override
