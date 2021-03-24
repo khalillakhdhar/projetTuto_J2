@@ -118,11 +118,11 @@ public class Candidat implements DaoCandidat {
 		try
 		{
 			Connexion c=new Connexion();
-			String sql="UPDATE `table` SET `nom`='"+this.getNom()+"',`prenom`='"+this.getPrenom()+"',`tel`='"+this.getTel()+"',`niveau`='"+this.getNiveau()+"',`email`='"+this.getEmail()+"',`prenom`='"+this.getPass()+"', WHERE `id`='"+this.getId()+"';";
+			String sql="UPDATE `candidat` SET `nom`='"+this.getNom()+"',`prenom`='"+this.getPrenom()+"',`tel`='"+this.getTel()+"',`niveau`='"+this.getNiveau()+"',`email`='"+this.getEmail()+"',`prenom`='"+this.getPass()+"' WHERE id='"+this.getId()+"';";
 					java.sql.PreparedStatement statement =
 					c.conn.prepareStatement(sql);
 					statement.executeUpdate();
-					;
+					System.out.println("modifié avec succés");
 			
 			
 		}
