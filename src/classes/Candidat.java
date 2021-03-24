@@ -140,7 +140,13 @@ public class Candidat implements DaoCandidat {
 	@Override
 	public void deleteCandidat() {
 		// TODO Auto-generated method stub
-
+		try {
+			Connexion c=new Connexion();
+			String sql = "DELETE FROM `candidat` WHERE `id`=?";
+			java.sql.PreparedStatement statement =
+			c.conn.prepareStatement(sql); statement.setInt(1,this.getId());
+			statement.execute();
+			} catch (SQLException ex) { }
 	}
 
 	@Override
@@ -174,5 +180,8 @@ public class Candidat implements DaoCandidat {
 		// return rs;
 		return null;
 	}
+	
+	
+	
 
 }
