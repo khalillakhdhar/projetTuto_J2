@@ -11,6 +11,22 @@ public class Test {
 	public static void main(String args[])
 	{
 	
+	Session s= new Session(22,1, "xx",6000);
+	try {
+		ResultSet res=s.afficheSession();
+		while(res.next())
+		{
+			System.out.println(res.getInt("id"));
+			System.out.println(res.getString("titre")+"/ "+res.getString("prix"));
+			
+			
+		}
+		
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	
 	
 	
