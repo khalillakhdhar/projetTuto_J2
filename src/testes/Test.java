@@ -37,10 +37,9 @@ public class Test {
 //		ca.setId(2);
 //		ca.deleteCandidat();
 		
-		Formation f1=new Formation("Spring boot","inconnu", "Spring MVC 5 et BOOT for API");
-	//	f1.setId(2);
-		f1.updateFormation(2);
-		f1.deleteFormation(2);
+	Session s=new Session(30, 1, "20/05/2021", 6200);
+	//s.updateSession(1);
+	s.deleteSession(2);
 		
 		
 	}
