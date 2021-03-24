@@ -76,14 +76,42 @@ public class Session implements DaoSession {
 	}
 
 	@Override
-	public void updateSession(int id) {
+	public void updateSession(int ids) {
 		// TODO Auto-generated method stub
-
+		try
+		{
+			Connexion c=new Connexion();
+			String sql="UPDATE `session` SET `date`='"+this.getDate()+"',`duree`='"+this.getDuree()+"',`prix`='"+this.getPrix()+"' WHERE id='"+ids+"';";
+					java.sql.PreparedStatement statement =
+					c.conn.prepareStatement(sql);
+					statement.executeUpdate();
+					System.out.println("modifié avec succés");
+			
+			
+		}
+		catch(Exception ex)
+		{
+			
+			System.out.println("erreur lors de la modification "+ ex.toString());
+			
+		}
 	}
 
 	@Override
-	public void deleteSession(int id) {
+	public void deleteSession(int ids) {
 		// TODO Auto-generated method stub
+		try {
+			Connexion c=new Connexion();
+			String sql = "DELETE FROM `session` WHERE `id`=?";
+			java.sql.PreparedStatement statement =
+			c.conn.prepareStatement(sql); statement.setInt(1,ids);
+			
+			statement.execute();
+			System.out.println("supprimé avec succés");
+			} catch (SQLException ex) {
+				System.out.println("erreur lors de la suppression "+ex.toString());
+				
+			}
 
 	}
 
