@@ -1,5 +1,7 @@
 package classes;
 
+import java.sql.ResultSet;
+
 import dao.DaoInscription;
 
 public class Inscription implements DaoInscription {
@@ -39,6 +41,11 @@ public void createInscription() {
 public void deleteInscription() {
 	// TODO Auto-generated method stub
 	
+}
+@Override
+public ResultSet afficheInscription() {
+	// TODO Auto-generated method stub
+	return null;
 }
 
 

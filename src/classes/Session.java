@@ -1,5 +1,7 @@
 package classes;
 
+import java.sql.ResultSet;
+
 import dao.DaoSession;
 
 public class Session implements DaoSession {
@@ -50,6 +52,11 @@ public void updateSession(int id) {
 public void deleteSession(int id) {
 	// TODO Auto-generated method stub
 	
+}
+@Override
+public ResultSet afficheSession() {
+	// TODO Auto-generated method stub
+	return null;
 }
 
 
