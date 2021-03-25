@@ -21,7 +21,7 @@
           <a class="nav-link "  href="profile.jsp">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="formation.jsp">Formation</a>
+          <a class="nav-link" href="formations.jsp">Formation</a>
         </li>
      <li class="nav-item">
           <a class="nav-link" href="session.jsp">session</a>
