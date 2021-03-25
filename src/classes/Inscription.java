@@ -16,6 +16,16 @@ public class Inscription implements DaoInscription {
 		this.id_session = id_session;
 	}
 
+	
+	
+	
+	public Inscription() {
+		super();
+	}
+
+
+
+
 	public int getId() {
 		return id;
 	}
@@ -74,7 +84,7 @@ public class Inscription implements DaoInscription {
 	public ResultSet afficheInscription() throws SQLException {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
-		String query="SELECT inscription.id,formation.titre,candidat.nom,candidat.prenom,inscription.date_heure FROM inscription ,formation ,candidat ,session WHERE inscription.id_user=candidat.id AND inscription.id_session=session.id AND session.id_formation=formation.id";
+		String query="SELECT inscription.id_session,inscription.id,formation.titre,candidat.nom,candidat.prenom,inscription.date_heure FROM inscription ,formation ,candidat ,session WHERE inscription.id_user=candidat.id AND inscription.id_session=session.id AND session.id_formation=formation.id";
 		Connexion c = new Connexion();
 		PreparedStatement pst;
 		pst = (PreparedStatement) c.conn.prepareStatement(query);

@@ -105,7 +105,15 @@ r = ses.afficheSession();
 				<td><%=r.getFloat("prix") %></td>
 				<td><%= r.getString("date") %></td>
 				<td><%= r.getInt("duree") %></td>
-				<td><a href="SessionServlet?id=<%= r.getInt("id") %> " class="btn btn-danger">Supprimer</a></td>
+				<td>
+				<a href="SessionServlet?id=<%=r.getInt("id")%> "
+					class="btn btn-danger">Supprimer</a>&nbsp;&nbsp;&nbsp; <a
+					href="InscriptionServlet?id=<%=r.getInt("id")%> "
+					class="btn btn-success">S'inscrire</a>&nbsp;&nbsp;&nbsp; <a
+					href="inscriptions.jsp?id=<%=r.getInt("id")%> "
+					class="btn btn-info">&nbsp;voir list</a></td>
+
+
 			</tr>
 			<% } %>
 		</tbody>
