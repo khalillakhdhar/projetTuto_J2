@@ -105,7 +105,7 @@ r = ses.afficheSession();
 				<td><%=r.getFloat("prix") %></td>
 				<td><%= r.getString("date") %></td>
 				<td><%= r.getInt("duree") %></td>
-				<td><a href="SessionServlet?id=<%= r.getInt("id") %> ">Supprimer</a></td>
+				<td><a href="SessionServlet?id=<%= r.getInt("id") %> " class="btn btn-danger">Supprimer</a></td>
 			</tr>
 			<% } %>
 		</tbody>
