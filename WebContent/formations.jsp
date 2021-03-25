@@ -82,7 +82,7 @@ else {
 				<td><%=rs.getString("titre")%></td>
 				<td><%=rs.getString("formateur")%></td>
 				<td><%=rs.getString("description")%></td>
-				<td></td>
+				<td><a href="FormationServlet?id=<%=rs.getInt("id") %>">supprimer</a></td>
 			</tr>
 			<%
 				}
