@@ -26,8 +26,13 @@
     <input type="password" name="pass" class="form-control" id="exampleInputPassword1">
   </div>
   <button type="submit" class="btn btn-primary">Connexion</button>
+  
   <br><a href="creation.jsp">s'inscrire</a>
 </form>
+<br><br>
+<%if (request.getAttribute("erreur")!=null) { %>
+<span class="badge bg-danger"><%= request.getAttribute("erreur") %></span>
+<% } %>
     </div>
     <div class="col-sm">
 

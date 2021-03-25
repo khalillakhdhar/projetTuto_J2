@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class AuthServlet
@@ -39,6 +40,7 @@ public class AuthServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
+		HttpSession session=request.getSession();
 		String email=request.getParameter("mail");
 		String pass=request.getParameter("pass");
 		Candidat ca=new Candidat();
@@ -48,6 +50,12 @@ public class AuthServlet extends HttpServlet {
 				String erreur="compte non reconnu";
 				request.setAttribute("erreur", erreur);
 				request.getRequestDispatcher("index.jsp").forward(request, response);
+			}
+			else
+			{
+				Candidat c=ca.authentifier(email,pass);
+				session.setAttribute("cuser", c);
+				response.sendRedirect("profile.jsp");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
