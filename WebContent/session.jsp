@@ -1,18 +1,22 @@
 <%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
-    <%@page import="classes.Candidat"%>
+	pageEncoding="ISO-8859-1"%>
+
+<%@page import="classes.Candidat"%>
 <%@page import="classes.Formation"%>
-<%@page import="classes.Session" %>
+<%@page import="classes.Session"%>
 <!DOCTYPE html>
 <html>
 <head>
 <%
-ResultSet rs;
+	ResultSet rs;
 
 Formation f = new Formation();
 rs = f.listFormation();
+
+ResultSet r;
+Session ses = new Session();
+r = ses.afficheSession();
 %>
 
 
@@ -20,8 +24,8 @@ rs = f.listFormation();
 <title>Session</title>
 </head>
 <body>
-<jsp:include page="menu.jsp"></jsp:include>
-<div class="container">
+	<jsp:include page="menu.jsp"></jsp:include>
+	<div class="container">
 		<div class="row">
 			<div class="col-sm"></div>
 			<div class="col-sm">
@@ -31,17 +35,20 @@ rs = f.listFormation();
 					</p>
 
 					<div class="mb-3">
-						<label for="formation" class="form-label">formation </label> <!--  input
+						<label for="formation" class="form-label">formation </label>
+						<!--  input
 							type="text" required name="formation" class="form-control"
 							id="formation"-->
-							<select name="formation" class="form-control">
-							<% while(rs.next())
-							{
-								%>
-								
-								<option value="<%=rs.getInt("id") %>"><%= rs.getString("titre") %></option>
-								<% } %>
-							</select>
+						<select name="formation" class="form-control">
+							<%
+								while (rs.next()) {
+							%>
+
+							<option value="<%=rs.getInt("id")%>"><%=rs.getString("titre")%></option>
+							<%
+								}
+							%>
+						</select>
 					</div>
 					<div class="mb-3">
 						<label for="duree" class="form-label">durée </label> <input
@@ -61,8 +68,7 @@ rs = f.listFormation();
 
 				</form>
 
-				<br>
-				<br>
+				<br> <br>
 				<%
 					if (request.getAttribute("message2") != null) {
 				%>
@@ -74,6 +80,37 @@ rs = f.listFormation();
 			<div class="col-sm"></div>
 		</div>
 	</div>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Formation</th>
+				<th>Description</th>
+				<th>formateur</th>
+				<th>prix</th>
+				<th>date</th>
+				<th>durée</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% while(r.next())
+			{%>
+			<tr>
+
+				<td><%=r.getString("titre") %></td>
+				<td><%= r.getString("description") %></td>
+				<td>
+					<%= r.getString("formateur") %>
+				</td>
+				<td><%=r.getFloat("prix") %></td>
+				<td><%= r.getString("date") %></td>
+				<td><%= r.getInt("duree") %></td>
+				<td><a href="SessionServlet?id=<%= r.getInt("id") %> ">Supprimer</a></td>
+			</tr>
+			<% } %>
+		</tbody>
+
+	</table>
 
 
 </body>

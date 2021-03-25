@@ -19,6 +19,16 @@ public class Session implements DaoSession {
 		this.prix = prix;
 	}
 
+	
+	
+	
+	public Session() {
+		super();
+	}
+
+
+
+
 	public int getId() {
 		return id;
 	}
@@ -120,7 +130,7 @@ public class Session implements DaoSession {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
-		String query="SELECT session.id, date,prix,duree,formation.titre,formation.formateur FROM `session`,formation WHERE session.id_formation=formation.id";
+		String query="SELECT session.id, date,prix,duree,formation.titre,formation.formateur,formation.description FROM `session`,formation WHERE session.id_formation=formation.id";
 		Connexion c = new Connexion();
 		PreparedStatement pst;
 		pst = (PreparedStatement) c.conn.prepareStatement(query);
