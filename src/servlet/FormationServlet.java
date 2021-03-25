@@ -46,7 +46,7 @@ public class FormationServlet extends HttpServlet {
 		f.createFormation();
 		String message="ajouté avec succés";
 		request.setAttribute("message", message);
-		request.getRequestDispatcher("formations.jsp")
+		request.getRequestDispatcher("formations.jsp").forward(request, response);
 		
 		
 	}
