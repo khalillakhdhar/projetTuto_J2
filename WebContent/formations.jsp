@@ -51,12 +51,13 @@ else {
 					<button type="submit" class="btn btn-primary">Ajouter</button>
 
 				</form>
+				
 				<br>
 				<br>
 				<%
-					if (request.getAttribute("erreur") != null) {
+					if (request.getAttribute("message2") != null) {
 				%>
-				<span class="badge bg-danger"><%=request.getAttribute("erreur")%></span>
+				<span class="badge bg-danger"><%=request.getAttribute("message2")%></span>
 				<%
 					}
 				%>
@@ -82,7 +83,7 @@ else {
 				<td><%=rs.getString("titre")%></td>
 				<td><%=rs.getString("formateur")%></td>
 				<td><%=rs.getString("description")%></td>
-				<td><a class="btn btn-danger" href="FormationServlet?id=<%=rs.getInt("id") %>">supprimer</a>&nbsp;&nbsp; &nbsp; <a href="#" class="btn btn-info">Voir les sessions</a></td>
+				<td><a class="btn btn-danger" href="FormationServlet?id=<%=rs.getInt("id") %>">supprimer</a>&nbsp;&nbsp; &nbsp; <a href="#" class="btn btn-outline-info">Voir les sessions</a></td>
 			</tr>
 			<%
 				}

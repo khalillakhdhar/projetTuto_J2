@@ -38,7 +38,7 @@ public class FormationServlet extends HttpServlet {
 		Formation f=new Formation();
 		f.deleteFormation(Integer.parseInt(identifiant));
 		String message="formation de id "+identifiant+" à été supprimé";
-		request.setAttribute("message", message);
+		request.setAttribute("message2", message);
 		request.getRequestDispatcher("formations.jsp").forward(request, response);
 	}
 
@@ -54,7 +54,7 @@ public class FormationServlet extends HttpServlet {
 		Formation f=new Formation(titre,formateur,description);
 		f.createFormation();
 		String message="ajouté avec succés";
-		request.setAttribute("message", message);
+		request.setAttribute("message1", message);
 		request.getRequestDispatcher("formations.jsp").forward(request, response);
 		
 		
