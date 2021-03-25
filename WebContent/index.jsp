@@ -26,7 +26,7 @@
     <input type="password" name="pass" class="form-control" id="exampleInputPassword1">
   </div>
   <button type="submit" class="btn btn-primary">Connexion</button>
-  <br><a href="création.jsp">s'inscrire</a>
+  <br><a href="creation.jsp">s'inscrire</a>
 </form>
     </div>
     <div class="col-sm">
