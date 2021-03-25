@@ -35,7 +35,7 @@ public class AuthServlet extends HttpServlet {
 		HttpSession session=request.getSession();
 		session.removeAttribute("cuser"); //optimisation pour la mêmoire
 		session.invalidate();
-		
+		response.sendRedirect("index.jsp");
 	}
 
 	/**
