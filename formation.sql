@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 24 mars 2021 à 10:51
+-- Généré le : jeu. 25 mars 2021 à 12:05
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.1
 
@@ -35,7 +35,7 @@ CREATE TABLE `candidat` (
   `niveau` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `pass` varchar(255) NOT NULL,
-  `grade` varchar(255) NOT NULL
+  `grade` varchar(255) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -43,7 +43,9 @@ CREATE TABLE `candidat` (
 --
 
 INSERT INTO `candidat` (`id`, `nom`, `prenom`, `tel`, `niveau`, `email`, `pass`, `grade`) VALUES
-(1, 'nom', 'prenom', 'tel', 'niveau', 'email', 'pass', 'user');
+(1, 'administrateur', 'admin', '20744351', 'débutant', 'admin@gmail.com', 'pass', 'admin'),
+(3, 'first', 'teste', '40222333', 'junior', 'firstuser@application.com', 'user', 'user'),
+(4, 'new', 'user', '40999888', 'débutant', 'new@new.org', 'newuser', 'user');
 
 -- --------------------------------------------------------
 
@@ -58,6 +60,15 @@ CREATE TABLE `formation` (
   `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `formation`
+--
+
+INSERT INTO `formation` (`id`, `titre`, `formateur`, `description`) VALUES
+(1, 'JSP', 'Khalil', 'JSP SERVLET JDBC ET JSTL'),
+(3, 'Java EE', 'khalil lakhdhar', 'JSP servlet JDBC MVC'),
+(6, 'teste', 'teste', 'teste');
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +81,13 @@ CREATE TABLE `inscription` (
   `id_session` int(11) NOT NULL,
   `date_heure` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `inscription`
+--
+
+INSERT INTO `inscription` (`id`, `id_user`, `id_session`, `date_heure`) VALUES
+(1, 1, 1, '2021-03-24 12:55:13');
 
 -- --------------------------------------------------------
 
@@ -84,6 +102,13 @@ CREATE TABLE `session` (
   `duree` int(11) NOT NULL,
   `prix` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `session`
+--
+
+INSERT INTO `session` (`id`, `date`, `id_formation`, `duree`, `prix`) VALUES
+(1, '20/05/2021', 1, 30, 6200);
 
 --
 -- Index pour les tables déchargées
@@ -124,25 +149,25 @@ ALTER TABLE `session`
 -- AUTO_INCREMENT pour la table `candidat`
 --
 ALTER TABLE `candidat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `formation`
 --
 ALTER TABLE `formation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `inscription`
 --
 ALTER TABLE `inscription`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `session`
 --
 ALTER TABLE `session`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Contraintes pour les tables déchargées
