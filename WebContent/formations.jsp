@@ -82,7 +82,7 @@ else {
 				<td><%=rs.getString("titre")%></td>
 				<td><%=rs.getString("formateur")%></td>
 				<td><%=rs.getString("description")%></td>
-				<td><a class="btn btn-danger" href="FormationServlet?id=<%=rs.getInt("id") %>">supprimer</a><a href="#" class="btn btn-info">Voir les sessions</a></td>
+				<td><a class="btn btn-danger" href="FormationServlet?id=<%=rs.getInt("id") %>">supprimer</a>&nbsp;&nbsp; &nbsp; <a href="#" class="btn btn-info">Voir les sessions</a></td>
 			</tr>
 			<%
 				}
