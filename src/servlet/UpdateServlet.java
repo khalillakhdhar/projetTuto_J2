@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import classes.Candidat;
 
@@ -37,13 +38,21 @@ public class UpdateServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session=request.getSession();
 		String nom=request.getParameter("nom");
 		String prenom=request.getParameter("prenom");
 		String tel=request.getParameter("tel");
 		String niveau=request.getParameter("niveau");
 		String email=request.getParameter("mail");
+		int id=Integer.parseInt(request.getParameter("id"));
 		String pass=request.getParameter("pass");
 Candidat ca=new Candidat(nom, prenom, tel, niveau, email, pass, "user");
+ca.setId(id);
+ca.updateCandidat();
+session.setAttribute("cuser", ca);
+
+response.sendRedirect("profile.jsp");
+
 	}
 
 }
