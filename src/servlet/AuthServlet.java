@@ -1,6 +1,9 @@
 package servlet;
 
+import classes.Candidat;
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +38,22 @@ public class AuthServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
+		String email=request.getParameter("mail");
+		String pass=request.getParameter("pass");
+		Candidat ca=new Candidat();
+		try {
+			if(ca.authentifier(email, pass)==null)
+			{
+				String erreur="compte non reconnu";
+				request.setAttribute("erreur", erreur);
+				request.getRequestDispatcher("index.jsp").forward(request, response);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }
