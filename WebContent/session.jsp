@@ -37,6 +37,12 @@ else {
 		<div class="row">
 			<div class="col-sm"></div>
 			<div class="col-sm">
+					<%
+	if(grade.equals("admin"))
+	{
+			
+			
+			%>
 				<form method="post" action="SessionServlet">
 					<p>
 					<h1>Gestion des Session</h1>
@@ -75,7 +81,7 @@ else {
 					<button type="submit" class="btn btn-primary">Ajouter</button>
 
 				</form>
-
+<% } %>
 				<br> <br>
 				<%
 					if (request.getAttribute("message2") != null) {
@@ -114,14 +120,23 @@ else {
 				<td><%= r.getString("date") %></td>
 				<td><%= r.getInt("duree") %></td>
 				<td>
+							<%
+	if(grade.equals("admin"))
+	{
+			
+			
+			%>
 				<a href="SessionServlet?id=<%=r.getInt("id")%> "
-					class="btn btn-danger">Supprimer</a>&nbsp;&nbsp;&nbsp; <a
-					href="InscriptionServlet?id=<%=r.getInt("id")%> "
-					class="btn btn-success">S'inscrire</a>&nbsp;&nbsp;&nbsp; <a
+					class="btn btn-danger">Supprimer</a>&nbsp;&nbsp;&nbsp;
+					
+					<a
 					href="inscriptions.jsp?id=<%=r.getInt("id")%> "
-					class="btn btn-info">&nbsp;voir list</a></td>
-
-
+					class="btn btn-info">&nbsp;voir list</a>&nbsp;&nbsp;&nbsp;
+					<% } %>
+					 <a
+					href="InscriptionServlet?id=<%=r.getInt("id")%> "
+					class="btn btn-success">S'inscrire</a>&nbsp;&nbsp;&nbsp; 
+</td>
 			</tr>
 			<% } %>
 		</tbody>
