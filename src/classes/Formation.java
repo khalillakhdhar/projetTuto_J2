@@ -13,6 +13,10 @@ public class Formation implements DaoFormation {
 	
 	
 	
+	public Formation() {
+		super();
+	}
+
 	public Formation(String titre, String formateur, String description) {
 		super();
 		this.titre = titre;
