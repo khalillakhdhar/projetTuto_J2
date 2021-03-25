@@ -32,8 +32,14 @@ public class FormationServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String identifiant=request.getParameter("id");
 		PrintWriter out=response.getWriter();
 		out.print("id="+request.getParameter("id"));
+		Formation f=new Formation();
+		f.deleteFormation(Integer.parseInt(identifiant));
+		String message="formation de id "+identifiant+" à été supprimé";
+		request.setAttribute("message", message);
+		request.getRequestDispatcher("formations.jsp").forward(request, response);
 	}
 
 	/**
