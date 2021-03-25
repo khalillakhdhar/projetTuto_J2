@@ -8,6 +8,7 @@
 <html>
 <head>
 <%
+String grade="";
 	ResultSet rs;
 Formation f = new Formation();
 rs = f.listFormation();
@@ -17,6 +18,7 @@ if (session.getAttribute("cuser") == null)
 	response.sendRedirect("index.jsp");
 else {
 	current = (Candidat) session.getAttribute("cuser");
+	 grade=current.getGrade();
 }
 %>
 <meta charset="ISO-8859-1">
@@ -28,6 +30,12 @@ else {
 		<div class="row">
 			<div class="col-sm"></div>
 			<div class="col-sm">
+			<%
+	if(grade.equals("admin"))
+	{
+			
+			
+			%>
 				<form method="post" action="FormationServlet">
 					<p>
 					<h1>Gestion des formation</h1>
@@ -51,7 +59,7 @@ else {
 					<button type="submit" class="btn btn-primary">Ajouter</button>
 
 				</form>
-				
+				<% } %>
 				<br>
 				<br>
 				<%
@@ -83,7 +91,17 @@ else {
 				<td><%=rs.getString("titre")%></td>
 				<td><%=rs.getString("formateur")%></td>
 				<td><%=rs.getString("description")%></td>
-				<td><a class="btn btn-danger" href="FormationServlet?id=<%=rs.getInt("id") %>">supprimer</a>&nbsp;&nbsp; &nbsp; <a href="#" class="btn btn-outline-info">Voir les sessions</a></td>
+				<td>
+				
+						<%
+	if(grade.equals("admin"))
+	{
+			
+			
+			%><a class="btn btn-danger" href="FormationServlet?id=<%=rs.getInt("id") %>">supprimer</a>&nbsp;&nbsp; &nbsp; 
+				
+				<% } %>
+				<a href="#" class="btn btn-outline-info">Voir les sessions</a></td>
 			</tr>
 			<%
 				}

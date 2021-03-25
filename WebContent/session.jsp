@@ -10,13 +10,21 @@
 <head>
 <%
 	ResultSet rs;
-
+String grade="";
 Formation f = new Formation();
 rs = f.listFormation();
 
 ResultSet r;
 Session ses = new Session();
 r = ses.afficheSession();
+
+Candidat current = new Candidat();
+if (session.getAttribute("cuser") == null)
+	response.sendRedirect("index.jsp");
+else {
+	current = (Candidat) session.getAttribute("cuser");
+	 grade=current.getGrade();
+}
 %>
 
 
