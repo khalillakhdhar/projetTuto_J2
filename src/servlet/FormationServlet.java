@@ -1,5 +1,8 @@
 package servlet;
 
+import classes.Formation;
+
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,7 +38,17 @@ public class FormationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
+		String titre=request.getParameter("titre");
+		String formateur=request.getParameter("formateur");
+		String description=request.getParameter("description");
+		Formation f=new Formation(titre,formateur,description);
+		f.createFormation();
+		String message="ajouté avec succés";
+		request.setAttribute("message", message);
+		request.getRequestDispatcher("formations.jsp")
+		
+		
 	}
 
 }
