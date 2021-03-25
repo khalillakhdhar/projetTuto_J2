@@ -1,5 +1,5 @@
 package servlet;
-
+import classes.Session;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,7 +35,16 @@ public class SessionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+	//	doGet(request, response);
+		int formation=Integer.parseInt(request.getParameter("formation"));
+		int duree=Integer.parseInt(request.getParameter("duree"));
+		String date=request.getParameter("date");
+		int prix=Integer.parseInt(request.getParameter("prix"));
+		
+		Session s=new Session(duree, formation, date, prix);
+		s.createSession();
+		response.sendRedirect("session.jsp");
+		
 	}
 
 }
