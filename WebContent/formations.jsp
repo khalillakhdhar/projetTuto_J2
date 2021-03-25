@@ -64,7 +64,14 @@ else
 <thead>
 <tr><th>Titre</th><th>Formateur</th><th>Desciption</th><th>Action</tr>
 </thead>
-
+<tbody>
+<%
+while(rs.next())
+{
+%>
+<tr><td><%=rs.getString("titre") %></td><td><%=rs.getString("formateur") %></td><td><%= rs.getString("description") %></td><td></td></tr>
+<% } %>
+</tbody>
 </table>
 </body>
 </html>
