@@ -18,22 +18,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Profile</a>
+          <a class="nav-link "  href="profile.jsp">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Formation</a>
+          <a class="nav-link" href="formation.jsp">Formation</a>
         </li>
      <li class="nav-item">
-          <a class="nav-link" href="#">session</a>
+          <a class="nav-link" href="session.jsp">session</a>
         </li>
           <li class="nav-item">
-          <a class="nav-link" href="#">Déconnexion</a>
+          <a class="nav-link" href="AuthServlet">Déconnexion</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+     
     </div>
   </div>
 </nav>
