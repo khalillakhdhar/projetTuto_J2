@@ -1,3 +1,4 @@
+<%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
         <%@page import="classes.Candidat" %>
@@ -7,6 +8,10 @@
 <html>
 <head>
 <%
+ResultSet rs;
+Formation f=new Formation();
+rs=f.listFormation();
+
 Candidat current=new Candidat();
 if(session.getAttribute("cuser")==null)
 	response.sendRedirect("index.jsp");
@@ -55,7 +60,10 @@ else
   </div>
 </div>
 
-<table>
+<table class="table table-bordered">
+<thead>
+<tr><th>Titre</th><th>Formateur</th><th>Desciption</th><th>Action</tr>
+</thead>
 
 </table>
 </body>
