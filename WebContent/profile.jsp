@@ -26,7 +26,7 @@ else
     <div class="col-sm">
     </div>
     <div class="col-sm">
-<form method="post" action="InscriptionServlet">
+<form method="post" action="UpdateServlet">
 <h1>Bienvenu <%=current.getNom()+" "+ current.getPrenom()  %></h1>
 <div class="mb-3">
     <label for="cnom" class="form-label">Nom </label>
